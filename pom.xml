@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jarego</groupId>
+	<artifactId>nb.java.swing.fixes</artifactId>
+	<version>1.0</version>
+	<packaging>nbm</packaging>
+	
+	<name>Java Swing Fixes</name>
+	<description>This plugin fix some little isues from Java Look And Feel for GTK,
+		and add custom popup menu layout to large menus</description>
+	
+	<developers>
+		<developer>
+			<name>Jared González</name>
+			<email>danjaredg@gmail.com</email>
+		</developer>
+	</developers>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>netbeans</id>
+			<name>Repository hosting NetBeans modules</name>
+			<url>http://bits.netbeans.org/nexus/content/groups/netbeans</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.netbeans.api</groupId>
+			<artifactId>org-netbeans-api-annotations-common</artifactId>
+			<version>RELEASE82</version>
+		</dependency>
+	 <dependency>
+	  <groupId>org.netbeans.api</groupId>
+	  <artifactId>org-openide-modules</artifactId>
+	  <version>RELEASE82</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.netbeans.api</groupId>
+	  <artifactId>org-openide-util-ui</artifactId>
+	  <version>RELEASE82</version>
+	 </dependency>
+	</dependencies>
+		
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>nbm-maven-plugin</artifactId>
+				<version>3.13</version>
+				<extensions>true</extensions>
+				<configuration>
+					<author>Jared González</author>
+					<licenseFile>${basedir}/LICENSE.md</licenseFile>
+					<licenseName>MIT License</licenseName>
+					<requiresRestart>true</requiresRestart>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<useDefaultManifestFile>true</useDefaultManifestFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
