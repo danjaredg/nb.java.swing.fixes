@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Install: org/jarego/nbplugin/jswingfixes/Installer.class
+OpenIDE-Module-Localizing-Bundle: org/jarego/nbplugin/jswingfixes/Bundle.properties
+
