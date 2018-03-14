@@ -47,10 +47,10 @@ public class ExtendedMenuUI extends BasicMenuUI {
 	}
 	
 	private void installOtherDefaults() {
-		String prefix = "Menu";
-		acceleratorFont = UIManager.getFont("MenuItem.acceleratorFont");
+		String prefix = "MenuItem";
+		acceleratorFont = UIManager.getFont(prefix + ".acceleratorFont");
 		if (acceleratorFont == null) {
-			acceleratorFont = UIManager.getFont("MenuItem.font");
+			acceleratorFont = UIManager.getFont(prefix + ".font");
 		}
 		if (selectionBackground == null
 				|| selectionBackground instanceof UIResource) {
@@ -78,7 +78,7 @@ public class ExtendedMenuUI extends BasicMenuUI {
 					= UIManager.getColor(prefix + ".acceleratorSelectionForeground");
 		}
 		acceleratorDelimiter
-				= UIManager.getString("MenuItem.acceleratorDelimiter");
+				= UIManager.getString(prefix + ".acceleratorDelimiter");
 		if (acceleratorDelimiter == null) {
 			acceleratorDelimiter = "+";
 		}
@@ -128,7 +128,12 @@ public class ExtendedMenuUI extends BasicMenuUI {
 			viewRect.width -= (insets.right + viewRect.x);
 			viewRect.height -= (insets.bottom + viewRect.y);
 		}
-		paintBackground(g, menu, selectionBackground);
+		
+		int menuWidth = menu.getWidth();
+        int menuHeight = menu.getHeight();
+		g.setColor(selectionBackground);
+		g.fillRect(0, 0, menuWidth, menuHeight);
+		
 		MenuItemLayoutHelper lh = new MenuItemLayoutHelper(menu, checkIcon,
 				arrowIcon, viewRect, defaultTextIconGap, acceleratorDelimiter,
 				menu.getComponentOrientation().isLeftToRight(), menu.getFont(),
