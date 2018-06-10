@@ -16,6 +16,8 @@ public class ExtendedLookAndFeel {
 				installGTKMenuBorders();
 				UIManager.getDefaults().put("MenuUI",
 						ExtendedMenuUI.class.getName());
+				UIManager.getDefaults().put("ColorChooserUI",
+						"javax.swing.plaf.basic.BasicColorChooserUI");
 				break;
 		}
 		UIManager.getDefaults().put("PopupMenuUI",
